@@ -4,7 +4,7 @@
 /* Hallmark · pre-emit critique: P4 H4 E4 S4 R5 V4 · weakest: H, a letter page risks reading flat; the diagram well and the topic table carry the mass between the prose */
 /* Hallmark · waive 38iii · the rose verb biết in the hero head, Lumen's named signature, once on the page · the theme's one accented verb */
 /* Hallmark · hero-review: fix · 5 findings · 4 resolved 1 partial (Newsreader stays for Vietnamese glyphs) */
-/* Hallmark · finish-review: subagent · 8 findings · 7 resolved 1 handed off (founder name slot) · gap: none */
+/* Hallmark · finish-review: subagent · 8 findings · 7 resolved 1 resolved after handoff (founder name: iGuru) · gap: none */
 @import url("./tokens.css");
 @import url("./base.css");
 
@@ -100,7 +100,6 @@ h1, h2, h3, .nav, .btn, figcaption, th { text-transform: lowercase; }
 .close__foot a:hover { color: var(--color-ink); text-decoration: underline; text-decoration-color: var(--color-accent); }
 .close__foot a:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
 .close__foot small { margin-left: auto; font-size: inherit; }
-.fill { padding: 0 0.25em; border: 1px dashed color-mix(in oklch, var(--color-muted) 70%, transparent); border-radius: 3px; color: var(--color-muted); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 
 @media (max-width: 60rem) {
   .hero__stage, .topics__grid, .first__grid { grid-template-columns: minmax(0, 1fr); }

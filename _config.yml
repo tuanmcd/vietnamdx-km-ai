@@ -1,0 +1,10 @@
+title: VietnamDX
+description: Tri thức tổ chức cho AI, cộng đồng cho lãnh đạo và quản lý doanh nghiệp.
+url: https://tuanmcd.github.io
+baseurl: /vietnamdx-km-ai
+markdown: kramdown
+timezone: Asia/Ho_Chi_Minh
+group_url: https://www.facebook.com/groups/VietnamDX
+exclude:
+  - .hallmark
+  - README.md

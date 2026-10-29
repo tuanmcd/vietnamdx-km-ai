@@ -1,0 +1,64 @@
+{%- assign vi = page.lang != "en" -%}
+{%- if vi -%}{%- assign home = "/" -%}{%- else -%}{%- assign home = "/en.html" -%}{%- endif -%}
+{%- assign twin = site.posts | where: "ref", page.ref | where_exp: "p", "p.lang != page.lang" | first -%}
+<!doctype html>
+<html lang="{{ page.lang | default: 'vi' }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page.title }} · VietnamDX</title>
+<meta name="description" content="{{ page.description }}">
+{%- if twin %}
+<link rel="alternate" hreflang="{{ page.lang }}" href="{{ page.url | relative_url }}">
+<link rel="alternate" hreflang="{{ twin.lang }}" href="{{ twin.url | relative_url }}">
+{%- endif %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400&family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
+</head>
+<body>
+<a class="skip" href="#main">{% if vi %}Bỏ qua, tới nội dung{% else %}Skip to content{% endif %}</a>
+
+<header class="nav">
+  <div class="container nav__inner">
+    <a class="wordmark" href="{{ home | relative_url }}" aria-label="{% if vi %}VietnamDX, trang chủ{% else %}VietnamDX, home{% endif %}">vietnamdx</a>
+    <nav class="nav__links" aria-label="{% if vi %}Chính{% else %}Main{% endif %}">
+      {%- if twin %}
+      <a class="nav__lang" href="{{ twin.url | relative_url }}" hreflang="{{ twin.lang }}" lang="{{ twin.lang }}">{% if vi %}english{% else %}tiếng việt{% endif %}</a>
+      {%- endif %}
+      <a class="btn btn--secondary btn--small" href="{{ site.group_url }}" target="_blank" rel="noopener">{% if vi %}vào nhóm{% else %}join the group{% endif %}</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <article class="post">
+    <div class="container">
+      <header class="post__head">
+        <p class="post__meta"><a href="{{ home | relative_url }}#bai-viet">{% if vi %}bài viết{% else %}posts{% endif %}</a>, <time datetime="{{ page.date | date_to_xmlschema }}">{% if vi %}{{ page.date | date: "%d/%m/%Y" }}{% else %}{{ page.date | date: "%-d %B %Y" }}{% endif %}</time></p>
+        <h1>{{ page.title }}</h1>
+        {%- if page.description %}
+        <p class="lead">{{ page.description }}</p>
+        {%- endif %}
+      </header>
+      <div class="post__body">
+        {{ content }}
+      </div>
+    </div>
+  </article>
+</main>
+
+<footer class="close close--post">
+  <div class="container">
+    <p class="close__line close__line--s">{% if vi %}bàn tiếp trong nhóm.{% else %}carry on in the group.{% endif %}</p>
+    <a class="btn btn--primary" href="{{ site.group_url }}" target="_blank" rel="noopener">{% if vi %}vào nhóm trên facebook{% else %}join on facebook{% endif %}</a>
+    <div class="close__foot">
+      <a href="{{ home | relative_url }}">{% if vi %}trang chủ{% else %}home{% endif %}</a>
+      <a href="{{ site.group_url }}" target="_blank" rel="noopener">facebook.com/groups/VietnamDX</a>
+      <small>© {{ site.time | date: "%Y" }} VietnamDX</small>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

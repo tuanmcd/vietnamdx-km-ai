@@ -1,3 +1,5 @@
+---
+---
 <!doctype html>
 <html lang="vi">
 <head>
@@ -20,6 +22,7 @@
     <a class="wordmark" href="index.html" aria-label="VietnamDX, trang chủ">vietnamdx</a>
     <nav class="nav__links" aria-label="Chính">
       <a class="nav__lang" href="en.html" hreflang="en" lang="en">english</a>
+      <a class="nav__lang nav__posts" href="#bai-viet">bài viết</a>
       <a class="btn btn--secondary btn--small" href="https://www.facebook.com/groups/VietnamDX" target="_blank" rel="noopener">vào nhóm</a>
     </nav>
   </div>
@@ -108,6 +111,17 @@
           <div><dt>cần</dt><dd>Cách đánh dấu bản nào còn hiệu lực.</dd></div>
         </dl>
       </figure>
+    </div>
+  </section>
+  <section class="posts" id="bai-viet" aria-labelledby="posts-head">
+    <div class="container posts__grid">
+      <h2 id="posts-head">bài viết mới</h2>
+      <ol class="posts__list" reversed>
+        {%- assign posts = site.posts | where: "lang", "vi" -%}
+        {%- for post in posts limit: 6 %}
+        <li><a class="posts__item" href="{{ post.url | relative_url }}"><span class="posts__title">{{ post.title }}</span><span class="posts__desc">{{ post.description }}</span><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d/%m/%Y" }}</time></a></li>
+        {%- endfor %}
+      </ol>
     </div>
   </section>
 </main>

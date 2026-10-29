@@ -1,3 +1,5 @@
+---
+---
 <!doctype html>
 <html lang="en">
 <head>
@@ -20,6 +22,7 @@
     <a class="wordmark" href="en.html" aria-label="VietnamDX, home">vietnamdx</a>
     <nav class="nav__links" aria-label="Main">
       <a class="nav__lang" href="index.html" hreflang="vi" lang="vi">tiếng việt</a>
+      <a class="nav__lang nav__posts" href="#bai-viet">posts</a>
       <a class="btn btn--secondary btn--small" href="https://www.facebook.com/groups/VietnamDX" target="_blank" rel="noopener">join the group</a>
     </nav>
   </div>
@@ -108,6 +111,17 @@
           <div><dt>need</dt><dd>A way to mark the current one.</dd></div>
         </dl>
       </figure>
+    </div>
+  </section>
+  <section class="posts" id="bai-viet" aria-labelledby="posts-head">
+    <div class="container posts__grid">
+      <h2 id="posts-head">latest posts</h2>
+      <ol class="posts__list" reversed>
+        {%- assign posts = site.posts | where: "lang", "en" -%}
+        {%- for post in posts limit: 6 %}
+        <li><a class="posts__item" href="{{ post.url | relative_url }}"><span class="posts__title">{{ post.title }}</span><span class="posts__desc">{{ post.description }}</span><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %b %Y" }}</time></a></li>
+        {%- endfor %}
+      </ol>
     </div>
   </section>
 </main>

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2026-10-29 16:00:00 +0700
+date: 2026-10-29 15:30:00 +0700
 lang: vi
 ref: give-me-a-break
 title: "cho tâm nghỉ một nhịp: lý liên kiệt và 24 khung hình"

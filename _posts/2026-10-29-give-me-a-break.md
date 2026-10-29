@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2026-10-29 16:00:00 +0700
+date: 2026-10-29 15:30:00 +0700
 lang: en
 ref: give-me-a-break
 title: "give your mind a break: jet li and the 24 frames"
